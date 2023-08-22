@@ -17,7 +17,7 @@ module.exports.loginUser = async (req, res) => {
       id: user._id,
     },
     process.env.SECRET,
-    { expiresIn: "120m", algorithm: "RS256", allowInsecureKeySizes: true }
+    { expiresIn: "120m" }
   );
   res.json({
     user: { ...user._doc, token: token },
@@ -45,7 +45,7 @@ module.exports.registerUser = async (req, res) => {
           id: user._id,
         },
         process.env.SECRET,
-        { expiresIn: "120m", algorithm: "RS256", allowInsecureKeySizes: true }
+        { expiresIn: "120m" }
       );
       res.json({
         user: { ...user._doc, token: token },
